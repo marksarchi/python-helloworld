@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.6.14-slim-buster
 LABEL maintainer="sarchi mark"
 
 COPY . /app
