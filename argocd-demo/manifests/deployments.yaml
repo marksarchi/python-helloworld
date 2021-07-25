@@ -2,14 +2,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: python-helloworld
-  name: python-helloworld
-  namespace: default 
+    app: nginx
+    tag: alpine
+  name: nginx-alpine
+  namespace: demo
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: python-helloworld
+      app: nginx
+      tag: alpine
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,13 +20,10 @@ spec:
   template:
     metadata:
       labels:
-        app: python-helloworld
+        app: nginx
+        tag: alpine
     spec:
       containers:
-      - image: 36044735/python-helloworld:v1.2.0
+      - image: nginx:alpine
         imagePullPolicy: IfNotPresent
-        name: python-helloworld
-        resources:
-          requests:
-            cpu: 50m
-            memory: 256Mi
+        name: nginx-alpine
