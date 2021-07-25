@@ -21,9 +21,9 @@ spec:
         app: python-helloworld
     spec:
       containers:
-      - image: 36044735/python-helloworld
+      - image: 36044735/python-helloworld:v1.2.0
         imagePullPolicy: IfNotPresent
-        name: python-helloworld:v1.2.0
+        name: python-helloworld
         resources:
           requests:
             cpu: 50m
